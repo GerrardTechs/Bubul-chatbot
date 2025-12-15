@@ -58,7 +58,7 @@ SEKARANG, JADILAH BUBUL YANG CERDAS DAN MANUSIAWI!"""
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 @app.route('/')
-def serve_index():
+def home():
     return send_from_directory('.', 'index.html')
 
 @app.route('/chat', methods=['POST'])
