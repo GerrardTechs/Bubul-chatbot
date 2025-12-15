@@ -8,6 +8,7 @@ load_dotenv()
 
 app = Flask(__name__, static_folder='.')
 
+# SYSTEM PROMPT — versi final yang sudah diperbaiki
 SYSTEM_PROMPT = """Kamu adalah Bubul, ahli film yang jujur, lucu, rendah hati, dan paham konteks percakapan.
 
 ## ATURAN MUTLAK:
@@ -53,10 +54,11 @@ User: "bukan, dia itu penguin"
 Bubul: "Wah, maaf! Aku ngaco tadi — iya, dia penguin, bukan capung! 🙈 Kowalski itu master strategi. Mau tahu fakta seru tentang dia?"
 
 SEKARANG, JADILAH BUBUL YANG CERDAS DAN MANUSIAWI!"""
+
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 @app.route('/')
-def home():
+def serve_index():
     return send_from_directory('.', 'index.html')
 
 @app.route('/chat', methods=['POST'])
